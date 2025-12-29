@@ -24,15 +24,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         background: #ffffff;  
         font-family: Arial, sans-serif;  
         text-align: center;  position: relative;  
-    overflow-x: hidden;  
-
-    
+    overflow-x: hidden; 
   }  
 a {  
     text-decoration-line:none;  
     font-size:18px;  
     color:Magenta;  
-      
+    
 }  
 a:link {  
  color:Magenta;  
@@ -52,9 +50,8 @@ a:hover {
    /* selected link */  
 a:active {  
    color: ;  
-   }  
-  
-  
+   }
+
 .buffer{  
     position: relative;  
     margin:30px,auto,10px,auto;  
@@ -62,12 +59,15 @@ a:active {
     align-items: top;  
     vertical-align: top;  
 }  
-  
-.content {  
-    position: relative;  
-    margin: 5px 15px 5px 15px;  
-    padding: 10px;  
-}  
+
+ .h3 {   position: relative;
+     }
+
+.content {
+    position: relative;
+    margin: 5px 15px 5px 15px;
+    padding: 10px;
+          }
 
 /* Background image stays fully visible */  
 .parent-element::before {  
@@ -91,7 +91,9 @@ a:active {
     border: 3px solid #000;  
     position: relative;  
     min-height: 350px;  
-}  
+    max-height: 45%;
+    height: auto;
+}   
 /* Align star + name horizontally */
 
 .name-row {
@@ -177,10 +179,10 @@ padding: 10px;
     min-width: 70%;  
     margin: 5px auto;  
     display: block;  
-    background: #00E5FF;  
+    background: white;  
     border-radius: 12px;  
     border: 3px solid #000;  
-    
+    padding: 8px;
 }  
  h2 {  
      font:20px;  
@@ -260,8 +262,143 @@ pointer-events: none;
 font-size: 16px;
 transition: opacity 1s ease;
 }
-</style>
+/* =========================
+   RESPONSIVE CORE FIXES
+========================= */
 
+/* Universal box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent sideways scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Flexible content width */
+.content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Background container adapts */
+.background {
+  width: 95%;
+  max-width: 900px;
+}
+
+/* Images scale properly */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Main photo fix */
+.photo {
+  height: auto;
+  min-height: 180px;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+/* Buttons scale better */
+.btn {
+  width: 90%;
+  max-width: 400px;
+  font-size: 1rem;
+}
+
+/* Name + star wrap safely */
+.name-row {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Prevent corner buttons overlapping */
+.page-back,
+.page-forward {
+  top: 10px;
+  font-size: 20px;
+  width: 40px;
+  height: 32px;
+}
+
+/* Downline cards scale */
+.downline-page {
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   MOBILE (phones)
+========================= */
+@media (max-width: 480px) {
+
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+  
+  .name-title {
+    font-size: 22px;
+    -webkit-text-stroke: 0.8px black;
+    }
+  
+  #bookmarkBtn {
+    font-size: 26px;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .photo {
+    max-height: 240px;
+  }
+
+  .page-back { left: 10px; }
+  .page-forward { right: 10px; }
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .content {
+    max-width: 720px;
+  }
+
+  .photo {
+    max-height: 300px;
+  }
+
+  .name-title {
+    font-size: 26px;
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+@media (min-width: 1024px) {
+
+  .content {
+    max-width: 1000px;
+  }
+
+  .background {
+    padding: 25px;
+  }
+
+  .photo {
+    max-height: 360px;
+  }
+}
+</style>
 </head> 
 <script>
 // ------------------------------------------------------------
@@ -403,18 +540,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div style="margin:-8px,auto,-8,auto;"> </div>  
     <!-- Center Display -->  
     
-  <img class="photo img" width="100%" height="40%" src="https://1pagequicksites.github.io/images-brittney/compressed_1763446886399.png"></img>  
+  <img class="photo img" width="100%" height="40%" src="https://web.static.mmcdn.com/images/logo.svg?hash=b60d3714c382"></img>  
 
-    <div id="pageText">  
+    <div style="position:relevent;" id="pageText">  
       <div class="align">
     <div id="bookmarkBtn">   ★   </div>
         <a class="profile-link"  href="https://stripchat.com/sisishy/follow-me">
 <!-- Star + Name Row -->
-    <div class="name-row">  
-    <h3 class="name-title">Sisi_shy</h3>
+    <div style="position:relevent;" class="name-row">  
+    <h3 class="name-title">Your Name Here</h3>
     </div>
     </div>
-</div>  <!-- Fade Alert -->  <div id="bookmarkAlert"></div>  </a>  
+</div> 
+      <!-- Fade Alert -->  <div id="bookmarkAlert"></div>  </a>  
              <a href="https://stripchat.com/sisishy/follow-me">  
                    <h3 id="showtimeDisplay"   
 style="text-align:center; font-size:22px; margin:10px 0; font-weight:bold;"></h3> </a>  
@@ -424,14 +562,14 @@ style="text-align:center; font-size:22px; margin:10px 0; font-weight:bold;"></h3
      
     </div>  
 </div>
-</div>  
+</div>
     <!-- Bottom Navigation Buttons -->  
     <div style="margin:-25,auto,-25,auto;" >  
-      <a href="https://www.instagram.com/thereal_sisi_shy?igsh=MTA3OXpzYWt5MTA2cA==" style="margin:-25,auto,-25,auto; color:rgb(255, 0, 255)" class="support btn half"> Find me on Instagram </a>  
+      <a href="https://www.instagram.com/ix_cr3ampie?igsh=a3hzbjUyYmN0NWVh" style="margin:-25,auto,-25,auto; color:rgb(255, 0, 255)" class="support btn half"> Find me on Instagram </a>  
       <a href="page2.html" style="margin:-25,auto,-25,auto;" class="btn live link-devert half"> Be My Live Supporter </a>  
-    </div>  
-</div>  
-</body>  
+    </div>
+</div>
+</body>
 </html> 
 <script>
     /* GOOGLE SHEETS LIVE FOLLOW COUNTER */
