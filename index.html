@@ -889,6 +889,96 @@ star.addEventListener("click", () => {
     }  
 });  
 </script>  
+<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Page</title>
+  <style>
+    #profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    #controls {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="display-area">
+    <img id="profile-picture" src="" alt="Profile Picture">
+    <h3 id="name">Your Name Here</h3>
+    <p id="showtime">Showtime: --</p>
+    <p id="follow-count">Followers: --</p>
+  </div>
+
+  <div id="controls">
+    <button id="prev-btn">⟵ Back</button>
+    <button id="next-btn">Next ⟶</button>
+  </div>
+
+  <script>
+    const dataUrl = 'https://raw.githubusercontent.com/1pageQuickSites/infoPage/main/data.json';
+
+    let modelData = [];
+    let currentIndex = 0;
+
+    // DOM elements
+    const picEl = document.getElementById('profile-picture');
+    const nameEl = document.getElementById('name');
+    const showtimeEl = document.getElementById('showtime');
+    const followEl = document.getElementById('follow-count');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    async function fetchData() {
+      try {
+        const response = await fetch(dataUrl);
+        if (!response.ok) {
+          throw new Error('Data not found. Check URL.');
+        }
+        modelData = await response.json();
+        showData();
+      } catch (err) {
+        console.error("Fetch error:", err);
+        nameEl.textContent = "Error loading data";
+      }
+    }
+
+    function showData() {
+      if (modelData.length === 0) return;
+
+      const item = modelData[currentIndex];
+
+      picEl.src = item.profile_picture || '';
+      nameEl.textContent = item.name || "Unknown Name";
+      showtimeEl.textContent = `Showtime: ${item.showtime || "--"}`;
+      followEl.textContent = `Followers: ${item.follow_count ?? "--"}`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (modelData.length === 0) return;
+      currentIndex = (currentIndex - 1 + modelData.length) % modelData.length;
+      showData();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (modelData.length === 0) return;
+      currentIndex = (currentIndex + 1) % modelData.length;
+      showData();
+    });
+
+    fetchData();
+  </script>
+
+</body>
+</html>
+  
+</script>
 <script>  
     /* -------------------------------  
    SHOWTIME SCHEDULER SYSTEM  
